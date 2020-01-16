@@ -187,6 +187,7 @@ def terminate():
 class Menu():
 	def __init__(self):
 		self.results = dict()
+	
 	def start_screen(self):
 		screen = pygame.display.set_mode(screen_size)
 		pygame.display.set_caption('Змейка')
