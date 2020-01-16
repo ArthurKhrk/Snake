@@ -132,8 +132,7 @@ class Snake():
 			pygame.draw.rect(screen, self.snake_color, pygame.Rect(pos[0], pos[1], 10, 10))
 	
 	def check_for_game_over(self, game_over, screen_size):
-		"""Проверка, что столкунлись с концами экрана или сами с собой
-		(змея закольцевалась)"""
+		# проверка на то, что змея врезалась в стену
 		if any((
 				self.snake_head_pos[0] > screen_size[0] - 10
 				or self.snake_head_pos[0] < 0,
@@ -307,13 +306,11 @@ class Menu():
 				if event.type == pygame.QUIT:
 					terminate()
 				if event.type == pygame.MOUSEBUTTONDOWN:
-					# If the user clicked on the input_box rect.
 					if input_box.collidepoint(event.pos):
 						# Toggle the active variable.
 						active = not active
 					else:
 						active = False
-					# Change the current color of the input box.
 					color = color_active if active else color_inactive
 				if event.type == pygame.KEYDOWN:
 					if active:
